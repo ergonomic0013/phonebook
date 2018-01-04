@@ -1,0 +1,17 @@
+AppBundle\Entity\Session_msg:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\Session_msgRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        sessionMsg:
+            type: string
+            length: 255
+            nullable: true
+            column: session_msg
+    lifecycleCallbacks: {  }

@@ -1,0 +1,55 @@
+AppBundle\Entity\Traking_msg:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\Traking_msgRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        fkeyUtmParams:
+            type: integer
+            column: fkey_utm_params
+            nullable: true
+        fkeyVisitors:
+            type: integer
+            column: fkey_visitors
+            nullable: true
+        cid:
+            type: string
+            length: 255
+        trk:
+            type: string
+            length: 255
+            nullable: true
+        url:
+            type: string
+            length: 255
+        sid:
+            type: string
+            length: 255
+            nullable: true
+        uid:
+            type: string
+            length: 255
+            nullable: true
+        endpoint:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }
+    manyToOne:
+        visitors:
+            targetEntity: Visitors
+            inversedBy: Traking_msg
+            joinColumn: 
+                name: fkey_visitors
+                referencedColumnName: id
+        utm_params:
+            targetEntity: UTM_params
+            inversedBy: Traking_msg
+            joinColumn: 
+                name: fkey_utm_params
+                referencedColumnName: id       

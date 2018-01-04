@@ -1,0 +1,318 @@
+<?php
+
+namespace AppBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+/**
+ * Traking_msg
+ */
+class Traking_msg
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var int
+     */
+    private $fkeyUtmParams;
+
+    /**
+     * @var int
+     */
+    private $fkeyVisitors;
+
+    /**
+     * @var string
+     */
+    private $cid;
+
+    /**
+     * @var string
+     */
+    private $trk;
+
+    /**
+     * @var string
+     */
+    private $url;
+
+    /**
+     * @var string
+     */
+    private $sid;
+
+    /**
+     * @var string
+     */
+    private $uid;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set fkeyUtmParams
+     *
+     * @param integer $fkeyUtmParams
+     *
+     * @return Traking_msg
+     */
+    public function setFkeyUtmParams($fkeyUtmParams)
+    {
+        $this->fkeyUtmParams = $fkeyUtmParams;
+
+        return $this;
+    }
+
+    /**
+     * Get fkeyUtmParams
+     *
+     * @return int
+     */
+    public function getFkeyUtmParams()
+    {
+        return $this->fkeyUtmParams;
+    }
+
+    /**
+     * Set fkeyVisitors
+     *
+     * @param integer $fkeyVisitors
+     *
+     * @return Traking_msg
+     */
+    public function setFkeyVisitors($fkeyVisitors)
+    {
+        $this->fkeyVisitors = $fkeyVisitors;
+
+        return $this;
+    }
+
+    /**
+     * Get fkeyVisitors
+     *
+     * @return int
+     */
+    public function getFkeyVisitors()
+    {
+        return $this->fkeyVisitors;
+    }
+
+    /**
+     * Set cid
+     *
+     * @param string $cid
+     *
+     * @return Traking_msg
+     */
+    public function setCid($cid)
+    {
+        $this->cid = $cid;
+
+        return $this;
+    }
+
+    /**
+     * Get cid
+     *
+     * @return string
+     */
+    public function getCid()
+    {
+        return $this->cid;
+    }
+
+    /**
+     * Set trk
+     *
+     * @param string $trk
+     *
+     * @return Traking_msg
+     */
+    public function setTrk($trk)
+    {
+        $this->trk = $trk;
+
+        return $this;
+    }
+
+    /**
+     * Get trk
+     *
+     * @return string
+     */
+    public function getTrk()
+    {
+        return $this->trk;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Traking_msg
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set sid
+     *
+     * @param string $sid
+     *
+     * @return Traking_msg
+     */
+    public function setSid($sid)
+    {
+        $this->sid = $sid;
+
+        return $this;
+    }
+
+    /**
+     * Get sid
+     *
+     * @return string
+     */
+    public function getSid()
+    {
+        return $this->sid;
+    }
+
+    /**
+     * Set uid
+     *
+     * @param string $uid
+     *
+     * @return Traking_msg
+     */
+    public function setUid($uid)
+    {
+        $this->uid = $uid;
+
+        return $this;
+    }
+
+    /**
+     * Get uid
+     *
+     * @return string
+     */
+    public function getUid()
+    {
+        return $this->uid;
+    }
+    /**
+     * @var \AppBundle\Entity\Visitors
+     */
+    private $visitors;
+
+    /**
+     * @var \AppBundle\Entity\UTM_params
+     */
+    private $utm_params;
+
+
+    /**
+     * Set visitors
+     *
+     * @param \AppBundle\Entity\Visitors $visitors
+     *
+     * @return Traking_msg
+     */
+    public function setVisitors(\AppBundle\Entity\Visitors $visitors = null)
+    {
+        $this->visitors = $visitors;
+
+        return $this;
+    }
+
+    /**
+     * Get visitors
+     *
+     * @return \AppBundle\Entity\Visitors
+     */
+    public function getVisitors()
+    {
+        return $this->visitors;
+    }
+
+    /**
+     * Set utmParams
+     *
+     * @param \AppBundle\Entity\UTM_params $utmParams
+     *
+     * @return Traking_msg
+     */
+    public function setUtmParams(\AppBundle\Entity\UTM_params $utmParams = null)
+    {
+        $this->utm_params = $utmParams;
+
+        return $this;
+    }
+
+    /**
+     * Get utmParams
+     *
+     * @return \AppBundle\Entity\UTM_params
+     */
+    public function getUtmParams()
+    {
+        return $this->utm_params;
+    }
+    /**
+     * @var string
+     */
+    private $endpoint;
+
+
+    /**
+     * Set endpoint
+     *
+     * @param string $endpoint
+     *
+     * @return Traking_msg
+     */
+    public function setEndpoint($endpoint)
+    {
+        $this->endpoint = $endpoint;
+
+        return $this;
+    }
+
+    /**
+     * Get endpoint
+     *
+     * @return string
+     */
+    public function getEndpoint()
+    {
+        return $this->endpoint;
+    }
+}

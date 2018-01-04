@@ -1,0 +1,8 @@
+
+smsg:
+    path:     smsg/index
+    defaults: { _controller: AppBundle:Smsg:index }
+
+tmsg:
+    path:     tmsg/index
+    defaults: { _controller: AppBundle:Tmsg:index }
