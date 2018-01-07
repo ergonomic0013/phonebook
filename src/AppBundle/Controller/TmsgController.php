@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -22,16 +23,10 @@ class TmsgController extends FOSRestController{
             empty($data['url']) ||  empty($data['vst']['ip']) || empty($data['vst']['lg']) || 
             empty($data['vst']['rf']) ||  empty($data['vst']['ua'])){
 
-            $view = $this->view('Incomming array does not complete', 400);
+            $view = $this->view('The input array is not completely filled', 400);
             return $this->handleView($view);
         }
     	else{
-            $trk = $data['trk'];
-            echo $trk.'<br>';
-            $a = base64_decode($trk);
-            echo $a; 
-
-            die('finish');
             $traking = new Traking_msg();
             $visitors = new Visitors();
 
@@ -40,6 +35,7 @@ class TmsgController extends FOSRestController{
             $traking->setUrl($data['url']);
             $traking->setSid($data['sid']);
             $traking->setUid($data['uid']);
+            $traking->setEndpoint('tmsg');
 
             $visitors->setIp($data['vst']['ip']);
             $visitors->setLg($data['vst']['lg']);
@@ -53,7 +49,7 @@ class TmsgController extends FOSRestController{
             $em->persist($traking);
             $em->flush();
 
-            $view = $this->view('Data from request was saccessfully saved', 200);
+            $view = $this->view('Data from request was successfully saved', 200);
             return $this->handleView($view);
         }
     }

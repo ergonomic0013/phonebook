@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use FOS\RestBundle\Controller\Annotations as Rest;
@@ -18,7 +19,7 @@ class SmsgController extends FOSRestController{
 		
 		
 		if(empty($data['cid']) || empty($data['sid']) || empty($data['uid']) || empty($data['url'])){
-			$view = $this->view('Incomming array does not complete', 400);
+			$view = $this->view('The input array is not completely filled', 400);
 			return $this->handleView($view);
 		}
 		else{
@@ -31,7 +32,7 @@ class SmsgController extends FOSRestController{
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($traking);
 			$em->flush();
-			$view = $this->view('Data from request was saccessfully saved', 200);
+			$view = $this->view('Data from request was successfully saved', 200);
 			return $this->handleView($view);
 		}
 	}
