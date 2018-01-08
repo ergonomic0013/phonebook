@@ -30,7 +30,11 @@ parameters:
     mailer_password: null
     secret: 
 ```
-
+## Import ***dump.sql*** in PostgreSQL with PgAdmin
+In pgAdmin, select the required target scheme in object tree
+* Click on Plugins/PSQL Console
+* Write ```\i /path/to/yourfile.sql```
+* Press enter
 
 All libraries and bundles included in the API are
 released under the MIT or BSD license.
