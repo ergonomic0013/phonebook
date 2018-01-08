@@ -3,7 +3,7 @@
 For details on how to download and get started with API, see below.
 
 ## Installation:
-You should enter a few commands in your <home> directory.
+You should enter a few commands from your ```<home>``` directory.
   
 Pretty simple with [Composer](http://packagist.org), run:
 
