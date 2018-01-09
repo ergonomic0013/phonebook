@@ -1,38 +1,29 @@
 AppBundle\Entity\Visitors:
     type: entity
-    table: visitors
+    table: null
+    repositoryClass: AppBundle\Repository\VisitorsRepository
     id:
         id:
             type: integer
-            nullable: false
-            options:
-                unsigned: false
             id: true
             generator:
-                strategy: SEQUENCE
+                strategy: AUTO
     fields:
         ip:
             type: string
-            nullable: false
             length: 255
-            options:
-                fixed: false
         lg:
             type: string
-            nullable: false
             length: 255
-            options:
-                fixed: false
         rf:
             type: string
-            nullable: false
             length: 255
-            options:
-                fixed: false
         ua:
             type: string
-            nullable: false
             length: 255
-            options:
-                fixed: false
     lifecycleCallbacks: {  }
+    oneToMany:
+        utm_params:
+            targetEntity: Traking_msg
+            mappedBy: Visitors
+            onDelete: CASCADE

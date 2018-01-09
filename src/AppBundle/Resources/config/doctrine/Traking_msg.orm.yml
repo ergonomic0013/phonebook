@@ -52,4 +52,4 @@ AppBundle\Entity\Traking_msg:
             inversedBy: Traking_msg
             joinColumn: 
                 name: fkey_utm_params
-                referencedColumnName: id       
+                referencedColumnName: id 

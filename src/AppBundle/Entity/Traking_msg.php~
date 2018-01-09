@@ -286,4 +286,33 @@ class Traking_msg
     {
         return $this->utm_params;
     }
+    /**
+     * @var string
+     */
+    private $endpoint;
+
+
+    /**
+     * Set endpoint
+     *
+     * @param string $endpoint
+     *
+     * @return Traking_msg
+     */
+    public function setEndpoint($endpoint)
+    {
+        $this->endpoint = $endpoint;
+
+        return $this;
+    }
+
+    /**
+     * Get endpoint
+     *
+     * @return string
+     */
+    public function getEndpoint()
+    {
+        return $this->endpoint;
+    }
 }
