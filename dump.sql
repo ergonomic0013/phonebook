@@ -40,7 +40,10 @@ SET default_with_oids = false;
 
 CREATE TABLE session_msg (
     id integer NOT NULL,
-    session_msg character varying(255) DEFAULT NULL::character varying
+    cid character varying(255) NOT NULL,
+    sid character varying(255) DEFAULT NULL::character varying,
+    uid character varying(255) DEFAULT NULL::character varying,
+    url character varying(255) DEFAULT NULL::character varying
 );
 
 
@@ -59,6 +62,20 @@ CREATE SEQUENCE session_msg_id_seq
 
 
 ALTER TABLE session_msg_id_seq OWNER TO postgres;
+
+--
+-- Name: session_msg_sess_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE session_msg_sess_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE session_msg_sess_id_seq OWNER TO postgres;
 
 --
 -- Name: traking_msg; Type: TABLE; Schema: public; Owner: postgres
