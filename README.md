@@ -52,7 +52,7 @@ psql tracker_db < dump.sql
 The database was created and the dump was imported!
 
 ## Testing Tracking API:
-For testing /tmsg endpoint you have to enter next command to terminal:
+For testing **/tmsg** endpoint you have to enter next command to terminal:
 ```
 curl -X POST -H "Content-type: application/json" -d '{
 "cid": "a65f7960-a19d-49c1-a915-c48f036e8887",
@@ -69,7 +69,7 @@ curl -X POST -H "Content-type: application/json" -d '{
 "uid": "4648471f-a360-471f-91f1-008b75d74f3b"
 }' http://<your host>/web/api/tmsg/index
 ```
-For /smsg endpoint:
+For **/smsg** endpoint:
 ```
 curl -X POST -H "Content-type: application/json" -d '{
 "cid": "a65f7960-a19d-49c1-a915-c48f036e8887",
