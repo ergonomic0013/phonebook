@@ -2,7 +2,7 @@
 
 For details on how to download and get started with API, see below.
 
-## Installation:
+## Installation
 You should enter a few commands from your ```<home>``` directory.
   
 Pretty simple with [Composer](http://packagist.org), run:
@@ -51,11 +51,10 @@ psql tracker_db < dump.sql
 
 The database was created and the dump was imported!
 
-##Testing Tracking API:
+## Testing Tracking API:
 
 
 
-All libraries and bundles included in the API are
-released under the MIT or BSD license.
+
 
 Enjoy!
