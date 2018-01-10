@@ -78,10 +78,10 @@ curl -X POST -H "Content-type: application/json" -d '{
 "url": "http://vantino.com/mno"
 }' http://<your host>/web/api/tmsg/index
 ```
-<br><br>
+<br>
 
-p.s: For detailed instructions on how to configure a virtual host, see the [documentation Apache](http://httpd.apache.org/docs/2.4/vhosts/examples.html)
+P.S: For detailed instructions on how to configure a virtual host, see the [documentation Apache](http://httpd.apache.org/docs/2.4/vhosts/examples.html)
 
-<br><br><br>
+<br>
 
 Enjoy!
