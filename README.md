@@ -14,6 +14,9 @@ git clone https://github.com/ergonomic0013/vantino vantino
 ```sh
 composer update
 ```
+Now your project is saved!
+Read below to see detailed instructions.
+
 ### Configuration example
 
 You can configure default query parameter names and templates
@@ -30,12 +33,24 @@ parameters:
     mailer_password: null
     secret: 
 ```
-## Import ***dump.sql*** in PostgreSQL with PgAdmin
-In pgAdmin, select the required target scheme in object tree
+## Import ***dump.sql*** in PostgreSQL
+In BASH Terminal you should enter next command:
+1. PostgreSQL installation
+```
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+```
+2. Create ***tracker_db*** database:
+```
+sudo -u postgres createdb tracker_db
+```
+3. Import **dump** file:
+```
+psql tracker_db < dump.sql
+```
 
-* Click on Plugins/PSQL Console
-* Write ```\i /path/to/dump.sql```
-* Press enter
+The database was created and the dump was imported!
+
 
 
 
