@@ -17,7 +17,7 @@ composer update
 Now your project is saved!
 Read below to see detailed instructions.
 
-### Configuration example
+#### Configuration example
 
 You can configure default query parameter names and templates
 ```yaml
@@ -51,6 +51,7 @@ psql tracker_db < dump.sql
 
 The database was created and the dump was imported!
 
+##Testing Tracking API:
 
 
 
