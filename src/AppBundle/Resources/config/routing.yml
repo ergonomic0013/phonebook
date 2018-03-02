@@ -1,19 +1,24 @@
+getAll:
+    path:     /users
+    defaults: { _controller: AppBundle:PhoneBook:getAll }
+    methods:    [GET]
+
 get:
-    path:     /get
+    path:     /users/search/{name}
     defaults: { _controller: AppBundle:PhoneBook:get }
     methods:    [GET]
 
 post:
-    path:     /post
+    path:     /users
     defaults: { _controller: AppBundle:PhoneBook:post }
     methods:    [POST]
 
 put:
-    path:     /put
+    path:     /users/{id}
     defaults: { _controller: AppBundle:PhoneBook:put }
     methods:    [PUT]
 
 delete:
-    path:     /delete
+    path:     users/delete/{id}
     defaults: { _controller: AppBundle:PhoneBook:delete }
     methods:    [DELETE]

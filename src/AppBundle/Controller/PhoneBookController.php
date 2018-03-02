@@ -10,29 +10,29 @@ use AppBundle\Entity\PhoneBook;
 
 class PhoneBookController extends FOSRestController
 {
-    public function getAction(Request $request)
+    public function getAllAction()
     {
-        //http://vantino/web/api/get?firstName=misha&lastName=&phoneNumber1=&phoneNumber2=&address=&email=&contactgroup=&other=
-        $data = $request->query->all(); 
+        $contact = $this->getDoctrine()->getRepository(PhoneBook::class)->findAll();
 
-        foreach ($data as $dk => $dv) {
-            $contact = $this->getDoctrine()->getRepository(PhoneBook::class)->findOneBy([$dk => $dv]);
-            if ($dv){
-                break;
-            }
-        }
-       
+        $view = $this->view($contact, 200);
+        return $this->handleView($view);
+    }
+
+    public function getAction($name)
+    {       
+        $em = $this->getDoctrine()->getManager();
+        $contact = $this->getDoctrine()->getRepository(PhoneBook::class)->findOneBy(['firstName' => $name]);
+
         if ($contact == null) {
             return new View('There are no contact exist', Response::HTTP_NOT_FOUND);
         }
-
         $view = $this->view($contact, 200);
         return $this->handleView($view);
     }
 
     public function postAction(Request $request)
     {
-        //http://vantino/web/api/post?firstname=misha&lastname=nemchenko&phonenumber1=0952940468&phonenumber2=&address=&email=ergonomic@ukr.net&contactgroup=user&other=bla
+        //  /api/users?firstname=misha&lastname=nemchenko&phonenumber1=0952940468&phonenumber2=&address=&email=ergonomic@ukr.net&contactgroup=user&other=bla
         $data = $request->query->all(); 
         $em = $this->getDoctrine()->getManager();
 
@@ -53,19 +53,44 @@ class PhoneBookController extends FOSRestController
         return $this->handleView($view);
     }
 
-    public function putAction()
+    public function putAction($id, Request $request)
     {
-        
+        $em = $this->getDoctrine()->getManager();
+        $contact = $this->getDoctrine()->getRepository(PhoneBook::class)->find($id);
 
-        $view = $this->view($users, 200);
+        if ($contact == null) {
+            return new View('There are no contact exist', Response::HTTP_NOT_FOUND);
+        }
+
+        $data = $request->query->all();
+        $contact->setFirstName($data['firstname']);
+        $contact->setLastName($data['lastname']);
+        $contact->setPhoneNumber1($data['phonenumber1']);
+        $contact->setPhoneNumber2($data['phonenumber2']);
+        $contact->setAddress($data['address']);
+        $contact->setEmail($data['email']);
+        $contact->setContactGroup($data['contactgroup']);
+        $contact->setOther($data['other']);
+
+        $em->flush();
+
+        $view = $this->view('Contact updated!', 200);
         return $this->handleView($view);
     }
 
-    public function deleteAction()
+    public function deleteAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
+        $contact = $this->getDoctrine()->getRepository(PhoneBook::class)->find($id);
+        
+        if ($contact == null) {
+            return new View('There are no contact exist', Response::HTTP_NOT_FOUND);
+        }
 
+        $em->remove($contact);
+        $em->flush();
 
-        $view = $this->view($users, 200);
+        $view = $this->view('Contact deleted', 200);
         return $this->handleView($view);        
     }
 
