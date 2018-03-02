@@ -1,8 +1,19 @@
+get:
+    path:     /get
+    defaults: { _controller: AppBundle:PhoneBook:get }
+    methods:    [GET]
 
-smsg:
-    path:     smsg/index
-    defaults: { _controller: AppBundle:Smsg:index }
+post:
+    path:     /post
+    defaults: { _controller: AppBundle:PhoneBook:post }
+    methods:    [POST]
 
-tmsg:
-    path:     tmsg/index
-    defaults: { _controller: AppBundle:Tmsg:index }
+put:
+    path:     /put
+    defaults: { _controller: AppBundle:PhoneBook:put }
+    methods:    [PUT]
+
+delete:
+    path:     /delete
+    defaults: { _controller: AppBundle:PhoneBook:delete }
+    methods:    [DELETE]

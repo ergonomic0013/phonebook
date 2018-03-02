@@ -1,0 +1,48 @@
+AppBundle\Entity\PhoneBook:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\PhoneBookRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        firstName:
+            type: string
+            length: 255
+            column: first_name
+        lastName:
+            type: string
+            length: 255
+            column: last_name
+            nullable: true
+        phoneNumber1:
+            type: string
+            length: 255
+            column: phone_number1
+        phoneNumber2:
+            type: string
+            length: 255
+            column: phone_number2
+            nullable: true
+        address:
+            type: string
+            length: 255
+            column: address
+            nullable: true
+        email:
+            type: string
+            length: 255
+            nullable: true
+        contactGroup:
+            type: string
+            length: 255
+            column: contact_group
+            nullable: true
+        other:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }
